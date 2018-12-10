@@ -27,7 +27,7 @@ separation = function(data, idxp, idxc, n){
  eqm_mean = eqm_add/n
  return (eqm_mean)
 }
-## Fonction valildation croisée
+## Fonction valildation croisÃ©e
 validation_croisee = function(data, idxp, idxc, K){
     EQM_j = 0
     nb_ligne = nrow(data)
@@ -41,7 +41,7 @@ validation_croisee = function(data, idxp, idxc, K){
 	mod_i1 = myreg(apprentissage, idxp,idxc)
 	predict_i1 = predict(mod_i1, test)
 	val_to_compare = test[,idxc]
-	EQM_i = EQM( val_to_compare, predict_i1)
+	EQM_i = erreur_gen( val_to_compare, predict_i1)
 	EQM_j = EQM_j+EQM_i
 	j = nb_indiv + j
 	k = k + nb_indiv
@@ -51,12 +51,12 @@ validation_croisee = function(data, idxp, idxc, K){
 	mod_i1 = myreg(apprentissage, idxp,idxc)
 	predict_i1 = predict(mod_i1, test)
 	val_to_compare = test[,idxc]
-	EQM_i = EQM( val_to_compare, predict_i1)
+	EQM_i = erreur_gen( val_to_compare, predict_i1)
 	EQM_j = EQM_j+EQM_i
 	return(EQM_j/K)
 }
 
-##Fonction selection ascendante séparation
+##Fonction selection ascendante sÃ©paration
 selec_asc_sep = function(data, idx_p, idx_c, K){
   best_eg = -1
   best_var = 0
@@ -86,7 +86,7 @@ selec_asc_sep = function(data, idx_p, idx_c, K){
   return (res)
 }
 
-##Fonction selection ascendante validation croisée
+##Fonction selection ascendante validation croisÃ©e
 selec_asc_val = function(data, idx_p, idx_c, K){
   best_eg = -1
   best_var = 0
